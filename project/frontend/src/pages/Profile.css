@@ -1,0 +1,380 @@
+@import './LostItems.css';
+
+/* ─── Page Layout ─────────────────────────────── */
+.profile-page {
+  max-width: 920px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.profile-header h1 {
+  color: var(--text);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  margin: 0;
+}
+
+/* ─── Logout Button ───────────────────────────── */
+.btn-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 18px;
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1.5px solid color-mix(in srgb, var(--danger) 50%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-logout:hover {
+  background: color-mix(in srgb, var(--danger) 16%, var(--surface));
+  border-color: var(--danger);
+  transform: translateY(-1px);
+}
+
+/* ─── Content Layout ──────────────────────────── */
+.profile-content {
+  display: grid;
+  gap: 20px;
+}
+
+/* ─── Hero Identity Card ──────────────────────── */
+.profile-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 55%),
+    linear-gradient(145deg, var(--primary-strong), var(--primary));
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: 18px;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 32px;
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--primary) 22%, transparent);
+}
+
+.profile-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.profile-avatar .user-avatar-xl,
+.profile-avatar .avatar-preview {
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+
+.avatar-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-file-input {
+  display: none;
+}
+
+.btn-avatar,
+.btn-avatar-danger {
+  min-height: 34px;
+  padding: 0 14px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-avatar:hover:not(:disabled),
+.btn-avatar-danger:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.btn-avatar-danger {
+  color: #fecaca;
+  border-color: rgba(254, 202, 202, 0.45);
+}
+
+.btn-avatar:disabled,
+.btn-avatar-danger:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.avatar-hint {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.profile-avatar-section .message {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.profile-avatar-section .message.success {
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.profile-avatar-section .message.error {
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.profile-info h2 {
+  color: #fff;
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.profile-info .email {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+}
+
+/* ─── Role Badge ──────────────────────────────── */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* On the hero card */
+.profile-info .role-badge {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+/* On the info display rows */
+.info-row .role-badge {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* ─── Grouped Detail Cards ────────────────────── */
+.profile-details {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header h3 {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.btn-edit {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-edit:hover {
+  background: color-mix(in srgb, var(--primary) 18%, var(--surface));
+  border-color: var(--primary);
+}
+
+/* ─── Info Display Rows ───────────────────────── */
+.info-display {
+  padding: 0 24px;
+}
+
+.info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .label {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.info-row span:not(.label):not(.role-badge):not(.status-active) {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.status-active {
+  color: var(--success);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ─── Messages ────────────────────────────────── */
+.message {
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  margin: 16px 24px 0;
+}
+
+.message.success {
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--success) 28%, transparent);
+}
+
+.message.error {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+  border-color: color-mix(in srgb, var(--danger) 28%, transparent);
+}
+
+/* ─── Profile Form ────────────────────────────── */
+.profile-form {
+  padding: 20px 24px 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.profile-form .form-group {
+  display: grid;
+  gap: 6px;
+}
+
+.profile-form .form-group label {
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.profile-form .form-group input {
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.profile-form .form-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+  outline: none;
+}
+
+.profile-form .form-group input:disabled {
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+/* ─── Responsive ──────────────────────────────── */
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 22px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    padding: 16px 18px;
+  }
+
+  .info-display {
+    padding: 0 18px;
+  }
+
+  .profile-form {
+    padding: 16px 18px 20px;
+  }
+
+  .info-row .label {
+    min-width: 110px;
+  }
+}

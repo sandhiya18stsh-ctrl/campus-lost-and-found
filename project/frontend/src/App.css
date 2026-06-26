@@ -1,0 +1,466 @@
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 14%, transparent), transparent 34rem),
+    var(--bg);
+}
+
+.home-page,
+.items-page,
+.claims-page,
+.notifications-page,
+.admin-page,
+.profile-page {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.items-header,
+.claims-header,
+.notifications-header,
+.admin-header,
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+p {
+  color: var(--muted);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-refresh,
+.btn-verify,
+.btn-complete,
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn-primary,
+.auth-button {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--primary) 26%, transparent);
+}
+
+.btn-secondary,
+.btn-refresh {
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.btn-verify {
+  color: #fff;
+  background: var(--primary);
+}
+
+.btn-complete {
+  color: #fff;
+  background: var(--success);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-refresh:hover,
+.btn-verify:hover,
+.btn-complete:hover,
+.auth-button:hover {
+  transform: translateY(-1px);
+}
+
+.loading,
+.empty-state,
+.error-message,
+.success-message {
+  padding: 18px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.error-message {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+}
+
+.form-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 12, 20, 0.58);
+  backdrop-filter: blur(8px);
+}
+
+.form-modal {
+  width: min(620px, 100%);
+  max-height: min(86vh, 920px);
+  overflow: auto;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.wide-modal {
+  width: min(780px, 100%);
+}
+
+.modal-subtitle {
+  margin: 8px 0 18px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-group label {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.form-actions,
+.item-actions,
+.claim-actions,
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.upload-dropzone {
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  overflow: hidden;
+  border: 1.5px dashed var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.upload-dropzone input {
+  display: none;
+}
+
+.upload-dropzone img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.filters-section,
+.filter-section {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(19, 36, 58, 0.06);
+}
+
+.search-bar,
+.filter-controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.filter-controls {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.items-grid,
+.claims-grid,
+.stats-grid,
+.actions-grid,
+.steps-grid,
+.features-grid,
+.insights-grid,
+.personality-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.item-card,
+.claim-card,
+.stat-card,
+.action-card,
+.step-card,
+.feature-card,
+.insight-card,
+.personality-card,
+.profile-card,
+.chart-card,
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(19, 36, 58, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.item-card:hover,
+.claim-card:hover,
+.action-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.item-media {
+  height: 170px;
+  margin: -18px -18px 16px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 18%, var(--surface-2)), color-mix(in srgb, var(--success) 12%, var(--surface-2)));
+}
+
+.item-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.item-media-fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--primary-strong);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.item-status,
+.claim-status,
+.status-badge,
+.role-badge,
+.item-badge {
+  display: inline-flex;
+  width: max-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--primary-strong);
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+}
+
+.status-approved,
+.status-returned,
+.status-completed,
+.status-available,
+.status-active {
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 12%, var(--surface));
+}
+
+.status-pending,
+.status-review,
+.status-under_review {
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 12%, var(--surface));
+}
+
+.status-rejected,
+.status-inactive,
+.status-closed {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, var(--surface));
+}
+
+.item-card h3,
+.claim-card h3 {
+  margin: 12px 0 8px;
+}
+
+.item-description {
+  min-height: 42px;
+  margin-bottom: 14px;
+}
+
+.item-details,
+.claim-info {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.label {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.claim-timeline {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.timeline-step {
+  padding: 6px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.timeline-step.active {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.users-table {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+td select {
+  min-width: 130px;
+  padding: 9px 36px 9px 10px;
+  color: var(--text);
+  background-color: var(--surface);
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-tabs,
+.view-toggle,
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.admin-tabs button,
+.view-toggle button,
+.filter-tabs button {
+  min-height: 40px;
+  padding: 0 14px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-weight: 800;
+}
+
+.admin-tabs button.active,
+.view-toggle button.active,
+.filter-tabs button.active {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+@media (max-width: 760px) {
+  .items-header,
+  .claims-header,
+  .notifications-header,
+  .admin-header,
+  .section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .form-row,
+  .search-bar,
+  .filter-controls {
+    grid-template-columns: 1fr;
+  }
+}

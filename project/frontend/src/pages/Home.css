@@ -1,0 +1,141 @@
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.hero-content,
+.hero-panel {
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.hero-content {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary) 14%, var(--surface)), var(--surface));
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--primary-strong);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-content p {
+  max-width: 720px;
+  margin: 18px 0 24px;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  min-height: 48px;
+  padding-inline: 20px;
+}
+
+.hero-panel {
+  display: grid;
+  gap: 16px;
+  align-content: center;
+}
+
+.hero-panel div {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.hero-panel strong {
+  color: var(--text);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.hero-panel span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.stats-section,
+.featured-section,
+.how-it-works,
+.quick-actions {
+  margin-top: 24px;
+}
+
+.stat-number {
+  color: var(--primary-strong);
+  font-size: 2.3rem;
+  font-weight: 900;
+}
+
+.stat-label,
+.view-all {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.view-all {
+  color: var(--primary-strong);
+  text-decoration: none;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  color: #fff;
+  border-radius: 10px;
+  background: var(--primary);
+  font-weight: 900;
+}
+
+@media (max-width: 860px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── AI Matches metric highlights ──────────────────────────── */
+.hero-panel-ai {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.hero-panel-ai strong {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-card-ai {
+  background: linear-gradient(135deg, #667eea0d 0%, #764ba20d 100%);
+  border: 1.5px solid #667eea33;
+}
+
+.stat-card-ai .stat-number {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

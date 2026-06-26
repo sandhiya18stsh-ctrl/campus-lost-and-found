@@ -1,0 +1,323 @@
+@import './LostItems.css';
+
+/* ─── Page Header ─────────────────────────────── */
+.admin-header {
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  color: var(--text);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+}
+
+/* ─── Tabs ────────────────────────────────────── */
+.admin-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 6px;
+}
+
+.admin-tabs button {
+  min-height: 36px;
+  padding: 0 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.admin-tabs button.active {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  font-weight: 700;
+}
+
+.admin-tabs button:hover:not(.active) {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+/* ─── Content Panel ───────────────────────────── */
+.admin-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Stats Grid ──────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-strong));
+  border-radius: 16px 16px 0 0;
+}
+
+.stat-card:hover {
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.stat-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.stat-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-number {
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.stat-total {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+/* ─── Quick Actions ───────────────────────────── */
+.quick-links {
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+}
+
+.quick-links h3 {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+  border: 1.5px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.quick-link:hover {
+  background: color-mix(in srgb, var(--primary) 14%, var(--surface));
+  border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+  transform: translateY(-2px);
+}
+
+/* ─── Section Header ──────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.section-header h2 {
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ─── Users Table ─────────────────────────────── */
+.users-table {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.users-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th {
+  padding: 12px 14px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.users-table td {
+  padding: 12px 14px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+
+.users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.users-table tbody tr:hover td {
+  background: var(--surface-2);
+}
+
+/* ─── Claims List ─────────────────────────────── */
+.claims-list {
+  display: grid;
+  gap: 12px;
+}
+
+.claim-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.15s ease;
+}
+
+.claim-item:hover {
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+}
+
+.claim-status {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.claim-status.status-pending {
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 14%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--warning) 30%, transparent);
+}
+
+.claim-status.status-approved {
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 14%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--success) 30%, transparent);
+}
+
+.claim-status.status-rejected {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 14%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--danger) 30%, transparent);
+}
+
+.claim-status.status-completed {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+.claim-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.claim-details h3 {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.claim-details p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.claim-details strong {
+  color: var(--text);
+  font-weight: 600;
+}

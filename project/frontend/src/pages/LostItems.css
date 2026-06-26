@@ -1,0 +1,202 @@
+/* Page-specific overrides — uses design tokens from index.css */
+
+.items-page {
+  max-width: 1180px;
+}
+
+.items-header h1 {
+  color: var(--text);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+}
+
+.form-modal h2 {
+  color: var(--text);
+}
+
+.form-group label {
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.filters-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.search-bar input {
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.search-bar input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.filter-controls select {
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  min-width: 150px;
+}
+
+.filter-controls select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.loading {
+  color: var(--muted);
+}
+
+.empty-state {
+  color: var(--muted);
+}
+
+.item-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.item-card h3 {
+  color: var(--text);
+}
+
+.item-description {
+  color: var(--muted);
+}
+
+.item-details span {
+  color: var(--muted);
+}
+
+.status-open {
+  color: var(--primary-strong);
+  background: color-mix(in srgb, var(--primary) 14%, var(--surface));
+}
+
+.status-matched {
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 14%, var(--surface));
+}
+
+.status-claimed {
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 14%, var(--surface));
+}
+
+.status-closed {
+  color: var(--muted);
+  background: var(--surface-2);
+}
+
+@media (max-width: 768px) {
+  .filter-controls select {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* ── Item Detail Drawer (with AI Matches) ─────────────────── */
+.item-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.item-detail-drawer {
+  background: var(--surface, #fff);
+  width: min(520px, 95vw);
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  animation: drawerSlideIn 0.22s ease;
+}
+
+@keyframes drawerSlideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+.item-detail-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  position: sticky;
+  top: 0;
+  background: var(--surface, #fff);
+  z-index: 1;
+}
+
+.item-detail-drawer-header h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-detail-drawer-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+}
+
+.drawer-item-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.drawer-meta {
+  margin: 0 0 1rem;
+}
+
+.drawer-meta .info-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border, #f0f0f0);
+  font-size: 0.875rem;
+}
+
+.drawer-meta dt {
+  font-weight: 600;
+  color: var(--text-secondary, #4a5568);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.drawer-meta dd {
+  margin: 0;
+  color: var(--text-primary, #1a202c);
+}
